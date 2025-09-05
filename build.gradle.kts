@@ -2,8 +2,8 @@ plugins {
     java
 }
 
-group = "com.github.leroyguillaume"
-version = "1.6.0"
+group = "dev.d64.keycloak"
+version = "1.0.0"
 
 repositories {
     mavenCentral()
@@ -16,14 +16,13 @@ configurations {
 }
 
 dependencies {
-    val bcryptVersion = "0.10.2"
+    val bouncycastleVersion = "1.79"
     val jbossLoggingVersion = "3.4.1.Final"
     val keycloakVersion = project.property("dependency.keycloak.version")
     val junitVersion = "5.8.2"
 
-    // BCrypt
-    implementation("at.favre.lib:bcrypt:$bcryptVersion")
-
+    // Bouncycastle
+    compileOnly("org.bouncycastle:bcprov-jdk18on:$bouncycastleVersion")
     // JBoss
     compileOnly("org.jboss.logging:jboss-logging:$jbossLoggingVersion")
 

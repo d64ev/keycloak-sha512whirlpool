@@ -15,25 +15,24 @@
  * limitations under the License.
  */
 
-package com.github.leroyguillaume.keycloak.bcrypt;
+package dev.d64.keycloak.sha512whirlpool;
 
 import org.keycloak.Config;
 import org.keycloak.credential.hash.PasswordHashProvider;
 import org.keycloak.credential.hash.PasswordHashProviderFactory;
 import org.keycloak.models.KeycloakSession;
 import org.keycloak.models.KeycloakSessionFactory;
-import org.keycloak.provider.ProviderFactory;
 
 /**
  * @author <a href="mailto:pro.guillaume.leroy@gmail.com">Guillaume Leroy</a>
  */
-public class BCryptPasswordHashProviderFactory implements PasswordHashProviderFactory {
-    public static final String ID = "bcrypt";
-    public static final int DEFAULT_ITERATIONS = 10;
+public class Sha512WhirlpoolPasswordHashProviderFactory implements PasswordHashProviderFactory {
+    public static final String ID = "sha512whirlpool";
+    public static final int DEFAULT_ITERATIONS = 0;
 
     @Override
     public PasswordHashProvider create(KeycloakSession session) {
-        return new BCryptPasswordHashProvider(ID, DEFAULT_ITERATIONS);
+        return new Sha512WhirlpoolPasswordHashProvider(ID, DEFAULT_ITERATIONS);
     }
 
     @Override

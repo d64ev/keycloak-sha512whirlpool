@@ -16,8 +16,8 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          distribution: adopt
-          java-version: '17'
+          distribution: temurin
+          java-version: '21'
 
       - name: Build
         run: ./gradlew jar
@@ -39,6 +39,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/libs/keycloak-bcrypt-${{ github.ref_name }}.jar
-          asset_name: keycloak-bcrypt-${{ github.ref_name }}.jar
+          asset_path: ./build/libs/keycloak-sha512whirlpool-${{ github.ref_name }}.jar
+          asset_name: keycloak-sha512whirlpool-${{ github.ref_name }}.jar
           asset_content_type: application/java-archive
